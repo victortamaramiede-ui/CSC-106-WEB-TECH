@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Student portfolio preview</title>
+  <desc id="desc">A stylised preview of a portfolio website.</desc>
+  <rect width="1200" height="900" fill="#f5efe8"/>
+  <rect x="110" y="110" width="980" height="680" rx="28" fill="#1d1c1d"/>
+  <rect x="170" y="180" width="860" height="80" rx="16" fill="#f5efe8"/>
+  <rect x="170" y="300" width="260" height="200" rx="18" fill="#cc6600" opacity="0.8"/>
+  <rect x="470" y="300" width="560" height="36" rx="8" fill="#d9c8bf"/>
+  <rect x="470" y="360" width="420" height="28" rx="8" fill="#d9c8bf"/>
+  <rect x="470" y="412" width="500" height="28" rx="8" fill="#d9c8bf"/>
+  <rect x="170" y="540" width="240" height="160" rx="16" fill="#dac1b8"/>
+  <rect x="445" y="540" width="240" height="160" rx="16" fill="#f1ebea"/>
+  <rect x="720" y="540" width="310" height="160" rx="16" fill="#592532"/>
+</svg>

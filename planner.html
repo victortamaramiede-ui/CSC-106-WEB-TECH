@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academic planner for Victor Blaze with task creation, filtering, and localStorage persistence."
+    />
+    <title>Academic Planner | Victor Blaze</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="Victor Blaze home page">
+          <span class="brand-mark">VB</span>
+          <span>Victor Blaze</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="site-nav" id="site-menu" aria-label="Main navigation">
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a class="is-active" href="planner.html">Academic Planner</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero small-hero">
+        <div class="container narrow-content">
+          <p class="eyebrow">Academic Planner</p>
+          <h1>Organize study, assignments, and revision with confidence.</h1>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="summary-grid" aria-label="Task summaries">
+            <article class="stat-card">
+              <span>Total</span>
+              <strong id="total-count">0</strong>
+            </article>
+            <article class="stat-card">
+              <span>Pending</span>
+              <strong id="pending-count">0</strong>
+            </article>
+            <article class="stat-card">
+              <span>Completed</span>
+              <strong id="completed-count">0</strong>
+            </article>
+            <article class="stat-card warning">
+              <span>Overdue</span>
+              <strong id="overdue-count">0</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted-section">
+        <div class="container planner-layout">
+          <div class="panel-card task-panel">
+            <h2>Add new task</h2>
+
+            <form id="task-form" novalidate>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="task-title">Task title</label>
+                  <input id="task-title" name="title" type="text" placeholder="Example: Web design research" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="task-category">Category</label>
+                  <select id="task-category" name="category" required>
+                    <option value="Assignment">Assignment</option>
+                    <option value="Lecture">Lecture</option>
+                    <option value="Study">Study</option>
+                    <option value="Examination">Examination</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="task-description">Description</label>
+                  <textarea id="task-description" name="description" rows="4" placeholder="Describe what needs to be done." required></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="task-date">Due date</label>
+                  <input id="task-date" name="dueDate" type="date" />
+                </div>
+
+                <div class="form-group">
+                  <label for="task-priority">Priority</label>
+                  <select id="task-priority" name="priority" required>
+                    <option value="High">High</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Low">Low</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="button primary" type="submit">Add task</button>
+                <p id="task-message" class="form-message" aria-live="polite"></p>
+              </div>
+            </form>
+          </div>
+
+          <div class="panel-card task-panel">
+            <h2>Tasks</h2>
+
+            <div class="task-toolbar" aria-label="Task filters and sorting">
+              <div class="filter-group" role="tablist" aria-label="Task filters">
+                <button class="filter-button is-selected" type="button" data-filter="all">All</button>
+                <button class="filter-button" type="button" data-filter="pending">Pending</button>
+                <button class="filter-button" type="button" data-filter="completed">Completed</button>
+                <button class="filter-button" type="button" data-filter="overdue">Overdue</button>
+              </div>
+            </div>
+
+            <div id="task-list" class="task-list" aria-live="polite"></div>
+            <div id="empty-state" class="empty-state hidden" aria-live="polite">
+              <p>No tasks yet. Add your first academic task to get started.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="index.html">
+            <span class="brand-mark">VB</span>
+            <span>Victor Blaze</span>
+          </a>
+          <p>Academic planning tools designed to help turn goals into structured, manageable work.</p>
+        </div>
+
+        <div>
+          <h3>Explore</h3>
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="planner.html">Academic Planner</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Connect</h3>
+          <ul class="footer-nav">
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://www.instagram.com/victorblazephotography?vrfl=MTZxeWQ1cm0xbmlyNg==" target="_blank" rel="noreferrer">Instagram</a></li>
+            <li><a href="https://victorblazephotography.mypixieset.com/" target="_blank" rel="noreferrer">Portfolio</a></li>
+            <li><a href="https://www.linkedin.com/in/tamaramiede-idumufinide/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-year></span> Victor Blaze Photography</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/planner.js"></script>
+  </body>
+</html>
